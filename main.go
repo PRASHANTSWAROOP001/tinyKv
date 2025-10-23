@@ -13,7 +13,12 @@ func main() {
 	defer database.Close()
 
 	database.Set("name", "Prashant")
-	
+	value, ok1 := database.Get("password")
+	if !ok1{
+		fmt.Println("missing data")
+	}else{
+		fmt.Println(value)
+	}
 	val, ok := database.Get("name")
 	if ok {
 		fmt.Println("name:", val)
